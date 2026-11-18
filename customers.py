@@ -70,3 +70,38 @@ for person in customers:
     discount_amount = 300 * discount_rate
 
     print(f"{name}: {tier}, Discount: ${discount_amount:.2f}")
+
+
+print("--- Exercise 7: Nested Catalog ---")
+catalog = {
+    "Widget A": {"price": 9.99, "stock": 150},
+    "Gadget C": {"price": 49.99, "stock": 8}
+}
+for product, details in catalog.items():
+    if details["stock"] < 20:
+        print(f"LOW STOCK: {product} ({details['stock']} remaining)")
+
+
+print("--- Exercise 8: Sales by Region ---")
+transactions = [
+    {"region": "South", "amount": 300},
+    {"region": "North", "amount": 150},
+    {"region": "South", "amount": 200}
+]
+region_totals = {}
+for transaction in transactions:
+    region = transaction["region"]
+    amount = transaction["amount"]
+
+    region_totals[region] = region_totals.get(region, 0) + amount
+for region in sorted(region_totals):
+    print(f"{region}: ${region_totals[region]}")
+
+#1. i'd use get() when I'm workign with data that might have missing fields because
+#it allows me to provide a default value instaed of crashing. I would use a bracket
+#notation when I know a key should exist, since an error would help me find a problem
+#in my data
+#2. Buildign a summary dictionary reminds me of using a table in google sheets to 
+#group data and calculate totals for different categories. Python can be useful for
+#large datasets because it allows me to automate the rpocess and repeat it without
+#manually updating a spreadsheet. 
