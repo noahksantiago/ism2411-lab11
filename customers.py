@@ -21,3 +21,20 @@ customer["tier"] = "platinum"
 print(customer)
 del customer["email"]
 print(customer)
+
+
+print("--- Exercise 3: Safe Lookup ---")
+email = customer.get("email", "no email on file")
+print(email)
+
+try:
+    print(customer["email"])
+except KeyError as error:
+    print("KeyError caught:", error)
+
+print("--- Exercise 4: Iterate ---")
+for key, value in customer.items():
+    print(f"{key}: {value}")
+
+for key in customer:
+    print(key)
